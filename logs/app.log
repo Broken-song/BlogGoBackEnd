@@ -1,0 +1,45 @@
+{"level":"local.info","ts":"[2023-11-03 11:40:03.009]","caller":"BlogGoBackEnd/main.go:36","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-03 11:52:02.150]","caller":"BlogGoBackEnd/main.go:36","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 09:24:11.058]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 09:25:08.729]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 10:12:43.997]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 11:16:10.451]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 11:25:02.763]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 11:49:59.694]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 12:06:50.985]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 12:15:25.271]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 12:16:04.015]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 12:17:00.699]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 12:52:18.676]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 13:43:12.219]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 13:53:22.222]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 13:57:09.101]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 14:01:03.716]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 15:30:32.823]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-06 16:06:57.694]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 08:40:05.526]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 08:44:10.244]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 10:47:41.034]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2023-11-07 10:47:41.596]","caller":"bootstrap/db.go:110","msg":"migrate table failed","err":"Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'users'"}
+{"level":"local.info","ts":"[2023-11-07 10:48:05.345]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2023-11-07 10:48:05.455]","caller":"bootstrap/db.go:110","msg":"migrate table failed","err":"Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'users'"}
+{"level":"local.info","ts":"[2023-11-07 11:11:16.572]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 11:17:24.308]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 11:19:28.853]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 11:48:54.797]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 11:51:45.775]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 11:55:37.649]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 12:20:12.401]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 12:49:45.745]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-07 13:01:07.054]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-08 08:45:51.478]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-08 09:06:42.533]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-08 09:59:33.907]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2023-11-08 09:59:34.360]","caller":"bootstrap/redis.go:18","msg":"Redis connect ping failed, err:","err":"dial tcp: lookup tcp/int: getaddrinfow: The specified class was not found."}
+{"level":"local.info","ts":"[2023-11-08 10:11:18.658]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2023-11-08 10:11:18.972]","caller":"bootstrap/redis.go:18","msg":"Redis connect ping failed, err:","err":"dial tcp: lookup tcp/int: getaddrinfow: The specified class was not found."}
+{"level":"local.info","ts":"[2023-11-08 10:14:23.297]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2023-11-08 10:14:23.579]","caller":"bootstrap/redis.go:18","msg":"Redis connect ping failed, err:","err":"dial tcp: lookup tcp/int: getaddrinfow: The specified class was not found."}
+{"level":"local.info","ts":"[2023-11-08 10:18:48.553]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2023-11-08 10:18:48.791]","caller":"bootstrap/redis.go:18","msg":"Redis connect ping failed, err:","err":"dial tcp: lookup tcp/int: getaddrinfow: The specified class was not found."}
+{"level":"local.info","ts":"[2023-11-08 10:20:28.464]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}

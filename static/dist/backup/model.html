@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang = "zh-cn">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
+        <meta name = "viewport" content = "width=device-width, initial-cale=1.0" />
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+        <link rel = "stylesheet" href = "style/model.css" />
+        <title>PageModel - Starpearl</title>
+    </head>
+    <body>
+        <header style>
+            <div class = "navbar">
+                <div class = "logo"><a href = "#">Starpearl</a></div>
+                <ul class="links">
+                    <li><a href = "#" title = "主页">主页</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "相册">相册</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "时间轴">时间轴</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "圈子">圈子</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "留言">留言</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "关于">关于</a><div class = "nav-box"></div></li>
+                </ul>
+                <a href = "./login.html" class = "login_btn">登录 & 注册</a>
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class = "dropdown_menu">
+            <div class = "links">
+                <li><a href = "#" title = "主页">主页</a></li>
+                <li><a href = "#" title = "时间轴">时间轴</a></li>
+                <li><a href = "#" title = "圈子">圈子</a></li>
+                <li><a href = "#" title = "留言">留言</a></li>
+                <li><a href = "#" title = "关于">关于</a></li>
+            </div>
+            <li><a href = "./login.html"class = "login_btn">登录 & 注册</a></li>
+        </div>
+        <script>
+            //下拉菜单
+            const el = document.querySelector('.menu')
+            const dropDownMenu = document.querySelector('.dropdown_menu')
+            el.onclick = function () {
+                el.classList.toggle('closeable');
+                dropDownMenu.classList.toggle('open')
+                const isOpen = dropDownMenu.classList.contains('open')
+            }
+            //导航栏滚动隐藏
+            const header = document.querySelector('header')
+            window.addEventListener('scroll', function(){
+                if(window.pageYOffset > 0)
+                {
+                    header.setAttribute("style", "top: -61.5px;")
+                }else{
+                    header.setAttribute("style", "")
+                }
+            })
+     //鼠标点击特效
+      (function () {
+            var a_idx = 0;
+            window.onclick = function (event) {
+                var a = new Array("☆星玥☆","☆Starpearl☆");
+ 
+                var heart = document.createElement("b"); //创建b元素
+                heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+ 
+                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+                a_idx = (a_idx + 1) % a.length;
+                heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+ 
+                var f = 16, // 字体大小
+                    x = event.clientX - f / 2, // 横坐标
+                    y = event.clientY - f, // 纵坐标
+                    c = randomColor(), // 随机颜色
+                    a = 1, // 透明度
+                    s = 1.2; // 放大缩小
+ 
+                var timer = setInterval(function () { //添加定时器
+                    if (a <= 0) {
+                        document.body.removeChild(heart);
+                        clearInterval(timer);
+                    } else {
+                        heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                            c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                            s + ");";
+ 
+                        y--;
+                        a -= 0.016;
+                        s += 0.002;
+                    }
+                }, 15)
+ 
+            }
+            //随机颜色
+            function randomColor() {
+ 
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+                .random() * 255)) + ")";
+ 
+            }
+        }());
+        </script>
+    </body>

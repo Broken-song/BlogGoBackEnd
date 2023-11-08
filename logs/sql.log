@@ -1,0 +1,984 @@
+
+2023/11/06 16:07:03 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18 Error 1054 (42S22): Unknown column 'users.deleted_at' in 'where clause'
+[16.541ms] [rows:0] SELECT `id` FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/06 16:07:03 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:24 Error 1054 (42S22): Unknown column 'created_at' in 'field list'
+[4.308ms] [rows:0] INSERT INTO `users` (`account`,`email`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('test','test@test.com','$2a$04$aTe3SucTZ5xmdt3oe56x.udUHZPSNwr7JpjLnX.QS5WMZUuxxHxvG','2023-11-06 16:07:03.08','2023-11-06 16:07:03.08',NULL)
+
+2023/11/07 08:40:57 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18 Error 1054 (42S22): Unknown column 'users.deleted_at' in 'where clause'
+[5.045ms] [rows:0] SELECT `id` FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 08:40:57 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:24 Error 1054 (42S22): Unknown column 'created_at' in 'field list'
+[1.311ms] [rows:0] INSERT INTO `users` (`account`,`email`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('test','test@test.com','$2a$04$9WQl0n8UO50ysn9Bevs1SuVRt/1svbXEaFhu1LZTL3LMYFHyP0gd6','2023-11-07 08:40:57.465','2023-11-07 08:40:57.465',NULL)
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.506ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[59.531ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[31.918ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.995ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.997ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[13.307ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[199.165ms] [rows:2] ALTER TABLE `users` MODIFY COLUMN `account` varchar(191) NOT NULL COMMENT '用户名'
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[59.654ms] [rows:2] ALTER TABLE `users` MODIFY COLUMN `email` varchar(191) NOT NULL COMMENT '邮箱'
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[57.809ms] [rows:2] ALTER TABLE `users` MODIFY COLUMN `password` varchar(191) NOT NULL DEFAULT '' COMMENT '用户密码'
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[16.214ms] [rows:0] ALTER TABLE `users` ADD `created_at` datetime NULL COMMENT '创建时间'
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[22.110ms] [rows:0] ALTER TABLE `users` ADD `updated_at` datetime NULL COMMENT '更新时间'
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[13.480ms] [rows:0] ALTER TABLE `users` ADD `deleted_at` datetime NULL
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.906ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.665ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.327ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/07 10:47:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106 Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'users'
+[0.506ms] [rows:0] CREATE INDEX `idx_users_email` ON `users`(`email`)
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.505ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[6.121ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.189ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.745ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.505ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.117ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.610ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.307ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.259ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/07 10:48:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106 Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'users'
+[0.000ms] [rows:0] CREATE INDEX `idx_users_email` ON `users`(`email`)
+
+2023/11/07 11:11:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18 record not found
+[3.130ms] [rows:0] SELECT `id` FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:11:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:24
+[7.764ms] [rows:1] INSERT INTO `users` (`account`,`email`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('test','test@test.com','$2a$04$ehBL3S/VFbWAVLJVqjHGS.MQIDmxL4W4itTdPAYM1Oj1uZckP4GW.','2023-11-07 11:11:34.538','2023-11-07 11:11:34.538',NULL)
+
+2023/11/07 11:14:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18
+[1.073ms] [rows:1] SELECT `id` FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:17:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18 Error 1146 (42S02): Table 'demo.users' doesn't exist
+[7.164ms] [rows:0] SELECT `id` FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:17:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:24 Error 1146 (42S02): Table 'demo.users' doesn't exist
+[1.735ms] [rows:0] INSERT INTO `users` (`account`,`email`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('test','test@test.com','$2a$04$kSH5zzyD817xO5/ORil4WOpf4Lf2D/c4V7zxR3ouaTeuZIgs7vDe2','2023-11-07 11:17:07.655','2023-11-07 11:17:07.655',NULL)
+
+2023/11/07 11:19:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.504ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:19:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.554ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:19:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.131ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/07 11:19:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[33.424ms] [rows:0] CREATE TABLE `users` (`id` bigint unsigned AUTO_INCREMENT,`account` varchar(191) NOT NULL COMMENT '用户名',`email` varchar(191) NOT NULL COMMENT '邮箱',`password` varchar(191) NOT NULL DEFAULT '' COMMENT '用户密码',`created_at` datetime NULL COMMENT '创建时间',`updated_at` datetime NULL COMMENT '更新时间',`deleted_at` datetime NULL,PRIMARY KEY (`id`),INDEX `idx_users_email` (`email`),INDEX `idx_users_deleted_at` (`deleted_at`))
+
+2023/11/07 11:27:01 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18 record not found
+[2.076ms] [rows:0] SELECT `id` FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:27:01 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:24
+[5.553ms] [rows:1] INSERT INTO `users` (`account`,`email`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('test','test@test.com','$2a$04$1xVpBCIHZdFWqANx1Lh7Re3Aku0rWBDvZ7kMTDKXDRU.4G1.1ujqW','2023-11-07 11:27:01.154','2023-11-07 11:27:01.154',NULL)
+
+2023/11/07 11:27:29 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18 record not found
+[1.125ms] [rows:0] SELECT `id` FROM `users` WHERE email = 'shiyue@starpearl.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:27:29 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:24
+[3.145ms] [rows:1] INSERT INTO `users` (`account`,`email`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('shiyue','shiyue@starpearl.com','$2a$04$0Lwupb/8E6RsdRPs1S58WuY9asYNA9DKmYXHKj/xevYGra48.HbXi','2023-11-07 11:27:29.677','2023-11-07 11:27:29.677',NULL)
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[7.035ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[7.339ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.145ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.855ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.507ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.751ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.505ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.275ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.657ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.511ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.415ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:48:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.621ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/07 11:49:17 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:30 Error 1054 (42S22): Unknown column 'mobile' in 'where clause'
+[1.506ms] [rows:0] SELECT * FROM `users` WHERE mobile = 'shiyue@starpearl.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:49:53 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:30 Error 1054 (42S22): Unknown column 'mobile' in 'where clause'
+[0.578ms] [rows:0] SELECT * FROM `users` WHERE mobile = 'shiyue@starpearl.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:50:31 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:30 Error 1054 (42S22): Unknown column 'mobile' in 'where clause'
+[0.000ms] [rows:0] SELECT * FROM `users` WHERE mobile = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:50:33 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:30 Error 1054 (42S22): Unknown column 'mobile' in 'where clause'
+[0.000ms] [rows:0] SELECT * FROM `users` WHERE mobile = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.506ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[4.497ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.505ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.509ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.095ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.505ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.989ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.526ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.677ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.150ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.667ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:51:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.099ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/07 11:52:06 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:30 Error 1054 (42S22): Unknown column 'mobile' in 'where clause'
+[0.507ms] [rows:0] SELECT * FROM `users` WHERE mobile = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:52:44 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18 record not found
+[2.012ms] [rows:0] SELECT `id` FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:52:44 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:24
+[4.991ms] [rows:1] INSERT INTO `users` (`account`,`email`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('admin','admin@wspirit.top','$2a$04$xrXp7Mr5WnkhW6xsEPh/jua8U5pJ4kNT2BIl6UA151MQqs/HeCgqW','2023-11-07 11:52:44.597','2023-11-07 11:52:44.597',NULL)
+
+2023/11/07 11:53:29 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:30 Error 1054 (42S22): Unknown column 'mobile' in 'where clause'
+[0.507ms] [rows:0] SELECT * FROM `users` WHERE mobile = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[4.853ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.424ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.272ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.505ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[4.364ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.525ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.778ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.946ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.224ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 11:55:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.750ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/07 11:55:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:30
+[2.692ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:56:46 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18
+[3.374ms] [rows:1] SELECT `id` FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 11:57:00 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:18
+[1.446ms] [rows:1] SELECT `id` FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.389ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[11.545ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[6.643ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.966ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[4.992ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[5.712ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.002ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[8.913ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[4.222ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 12:20:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.504ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/07 12:21:49 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.601ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 12:22:21 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[2.587ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 12:22:50 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.266ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 12:22:54 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.595ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 12:23:01 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.952ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 12:25:04 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.145ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.504ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[14.233ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[8.553ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.241ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.506ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[7.220ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.523ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.361ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[4.717ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.382ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 12:49:45 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.509ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/07 12:49:50 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.146ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 13:00:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[3.972ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.453ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[6.423ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[12.227ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.517ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.560ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.535ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.286ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.532ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.424ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.514ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.632ms] [rows:-] SELECT DATABASE()
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.707ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/07 13:01:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.711ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/07 13:03:20 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.467ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 13:03:44 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.151ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 13:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.682ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 13:06:47 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.514ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 13:06:52 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.506ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 13:06:55 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.993ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/07 13:07:19 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.522ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.035ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[40.983ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[16.337ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.418ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[6.491ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[12.410ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.504ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.238ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[4.693ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.094ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 08:45:51 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.388ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/08 08:46:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.568ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 08:46:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[0.770ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 08:46:21 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[0.939ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 08:46:22 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[19.025ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 08:46:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[0.752ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 08:46:36 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.998ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 08:46:50 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.523ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 08:53:56 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.131ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 09:01:57 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[2.170ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 09:02:17 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.548ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 09:05:00 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.288ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 09:05:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.690ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 09:05:12 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.012ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 3 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.507ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[11.084ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[6.343ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.236ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.504ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[4.414ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.535ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.512ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.979ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.164ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 09:06:42 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.684ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.002ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[25.408ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[11.995ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.517ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.322ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.985ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[8.777ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.507ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.093ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[4.890ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.105ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.102ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.507ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.808ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.139ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'media' AND table_type = 'BASE TABLE'
+
+2023/11/08 09:59:34 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[113.210ms] [rows:0] CREATE TABLE `media` (`id` bigint unsigned AUTO_INCREMENT,`disk_type` varchar(20) NOT NULL COMMENT '存储类型',`src_type` tinyint NOT NULL COMMENT '链接类型 1相对路径 2外链',`src` varchar(191) NOT NULL COMMENT '资源链接',`created_at` datetime NULL COMMENT '创建时间',`updated_at` datetime NULL COMMENT '更新时间',PRIMARY KEY (`id`),INDEX `idx_media_disk_type` (`disk_type`))
+
+2023/11/08 10:02:19 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.295ms] [rows:1] SELECT * FROM `users` WHERE email = 'shiyue@starpearl.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:07:02 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.357ms] [rows:1] SELECT * FROM `users` WHERE email = 'shiyue@starpearl.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:07:52 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[2.126ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:08:00 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[0.997ms] [rows:1] SELECT * FROM `users` WHERE email = 'admin@wspirit.top' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:10:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:19 record not found
+[1.042ms] [rows:0] SELECT `id` FROM `users` WHERE email = 'Broken_song@outlook.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:10:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:25
+[10.944ms] [rows:1] INSERT INTO `users` (`account`,`email`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('Broken_song','Broken_song@outlook.com','$2a$04$B/2uubC0ZQrNbB4gGq7oHe0zb/bfhbCB00Mh53YU37C6Qg4jtCyFW','2023-11-08 10:10:18.886','2023-11-08 10:10:18.886',NULL)
+
+2023/11/08 10:10:44 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[10.079ms] [rows:1] SELECT * FROM `users` WHERE email = 'Broken_song@outlook.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.517ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[16.907ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[12.366ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.989ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[8.195ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[5.984ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.516ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.112ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.508ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.026ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.491ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.616ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.510ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'media' AND table_type = 'BASE TABLE'
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.278ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[14.473ms] [rows:-] SELECT * FROM `media` LIMIT 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.069ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'media' ORDER BY ORDINAL_POSITION
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.507ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.273ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:11:18 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.603ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'media' AND index_name = 'idx_media_disk_type'
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.997ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[13.623ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[7.396ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.506ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.092ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.518ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[18.175ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.994ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.997ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[9.072ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[9.618ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.356ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.508ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.007ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.981ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'media' AND table_type = 'BASE TABLE'
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.166ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.519ms] [rows:-] SELECT * FROM `media` LIMIT 1
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.711ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'media' ORDER BY ORDINAL_POSITION
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.994ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:14:23 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.995ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'media' AND index_name = 'idx_media_disk_type'
+
+2023/11/08 10:14:49 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.253ms] [rows:1] SELECT * FROM `users` WHERE email = 'Broken_song@outlook.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:14:53 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[0.525ms] [rows:1] SELECT * FROM `users` WHERE email = 'Broken_song@outlook.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:16:07 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.134ms] [rows:1] SELECT * FROM `users` WHERE email = 'Broken_song@outlook.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:16:13 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[0.882ms] [rows:1] SELECT * FROM `users` WHERE email = 'Broken_song@outlook.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[6.205ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.804ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.226ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.506ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.402ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.583ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[8.188ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.891ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.516ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.943ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.394ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.364ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'media' AND table_type = 'BASE TABLE'
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.122ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.984ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.512ms] [rows:-] SELECT * FROM `media` LIMIT 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.814ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'media' ORDER BY ORDINAL_POSITION
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.515ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.106ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:18:48 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.661ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'media' AND index_name = 'idx_media_disk_type'
+
+2023/11/08 10:18:56 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.131ms] [rows:1] SELECT * FROM `users` WHERE email = 'Broken_song@outlook.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.505ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[9.287ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[5.586ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.525ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.067ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[3.023ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.506ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.559ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[2.345ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.357ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.383ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'users' AND index_name = 'idx_users_email'
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.296ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.883ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'demo' AND table_name = 'media' AND table_type = 'BASE TABLE'
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.840ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.504ms] [rows:-] SELECT * FROM `media` LIMIT 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.406ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'demo' AND table_name = 'media' ORDER BY ORDINAL_POSITION
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[0.885ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'demo%' ORDER BY SCHEMA_NAME='demo' DESC,SCHEMA_NAME limit 1
+
+2023/11/08 10:20:28 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/bootstrap/db.go:106
+[1.340ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'demo' AND table_name = 'media' AND index_name = 'idx_media_disk_type'
+
+2023/11/08 10:20:35 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.504ms] [rows:1] SELECT * FROM `users` WHERE email = 'Broken_song@outlook.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:20:41 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[0.705ms] [rows:1] SELECT * FROM `users` WHERE email = 'Broken_song@outlook.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:20:52 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.719ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 4 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:20:52 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.746ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 4 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:28:37 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:19
+[3.724ms] [rows:1] SELECT `id` FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:28:46 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:19 record not found
+[0.744ms] [rows:0] SELECT `id` FROM `users` WHERE email = 'test@md5.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:28:46 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:25
+[5.840ms] [rows:1] INSERT INTO `users` (`account`,`email`,`password`,`created_at`,`updated_at`,`deleted_at`) VALUES ('md5test','test@md5.com','$2a$04$RksqRq.6WKRi/aimE8.SAegorG3fXSAyhRhjfS7UMzhpZruDdIZSW','2023-11-08 10:28:46.939','2023-11-08 10:28:46.939',NULL)
+
+2023/11/08 10:32:50 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[3.884ms] [rows:1] SELECT * FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:34:03 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[1.191ms] [rows:1] SELECT * FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 10:34:05 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[0.810ms] [rows:1] SELECT * FROM `users` WHERE email = 'test@test.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 11:41:15 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[40.973ms] [rows:1] SELECT * FROM `users` WHERE email = 'test@md5.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 11:41:26 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.365ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 5 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 11:41:26 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.148ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 5 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 14:05:47 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[3.538ms] [rows:1] SELECT * FROM `users` WHERE email = 'test@md5.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 14:06:10 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.050ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 5 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 14:06:10 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[0.645ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 5 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 14:12:29 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:31
+[3.310ms] [rows:1] SELECT * FROM `users` WHERE email = 'test@md5.com' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 14:12:59 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/user.go:39
+[1.000ms] [rows:1] SELECT * FROM `users` WHERE `users`.`id` = 5 AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/08 14:12:59 C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/media.go:68
+[36.352ms] [rows:1] INSERT INTO `media` (`disk_type`,`src_type`,`src`,`created_at`,`updated_at`) VALUES ('local',1,'local/test/b7e6c582-8229-40ee-b538-66d92596512c.jpg','2023-11-08 14:12:59.625','2023-11-08 14:12:59.625')

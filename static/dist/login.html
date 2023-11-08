@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang = "zh-cn">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
+        <meta name = "viewport" content = "width=device-width, initial-cale=1.0" />
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+        <link rel = "stylesheet" href = "assets/style/login.css" />
+        <script type="text/javascript" charset="utf-8" src="assets/js/mouseclick.js"></script> 
+        <title>Login & Register - Starpearl</title>
+    </head>
+    <body>
+        <header style>
+            <div class = "navbar">
+                <div class = "logo"><a href = "./index.html">Starpearl</a></div>
+                <ul class="links">
+                    <li><a href = "./index.html" title = "主页">主页</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "相册">相册</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "时间轴">时间轴</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "圈子">圈子</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "留言">留言</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "关于">关于</a><div class = "nav-box"></div></li>
+                </ul>
+                <a href = "./login.html" class = "login_btn">登录 & 注册</a>
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class = "dropdown_menu">
+            <div class = "links">
+                <li><a href = "./index.html" title = "主页">主页</a></li>
+                <li><a href = "#" title = "时间轴">时间轴</a></li>
+                <li><a href = "#" title = "圈子">圈子</a></li>
+                <li><a href = "#" title = "留言">留言</a></li>
+                <li><a href = "#" title = "关于">关于</a></li>
+            </div>
+            <li><a href = "./login.html"class = "login_btn">登录 & 注册</a></li>
+        </div>
+        <div class = "container">
+            <div class = "form-box">
+                <!-- 注册 -->
+                <form class = "reg">
+                    <div class="register-box">
+                        <h1>register</h1>
+                        <input type="account" placeholder="用户名" name = "account" required>
+                        <input type="email" placeholder="邮箱" name = "email"required>
+                        <input type="password" placeholder="密码" name = "password" required>
+                        <input type="password" placeholder="确认密码" required>
+                        <button type = "submit" id = "reg_btn">注册</button>
+                    </div>
+                </form>
+                <!-- 登录 -->
+                <form class = "log">
+                    <div class="login-box">
+                        <h1>login</h1>
+                        <input type="email" placeholder="邮箱" name = "email" required>
+                        <input type="password" placeholder="密码" name = "password" required>
+                        <button type = "submit" id = "login_btn">登录</button>
+                    </div>
+                </form>
+            </div>
+            <div class="con-box left">
+                <h2>欢迎来到<span>星玥</span></h2>
+                <p>快来登录你的<span>星玥账号</span>吧</p>
+                <img src="assets/images/IMG_5892.jpg" alt="">
+                <p>没有账号？</p>
+                <button id="register">去注册</button>
+            </div>
+            <div class="con-box right">
+                <h2>欢迎来到<span>星玥</span></h2>
+                <p>快来注册你的<span>星玥账号</span>吧</p>
+                <img src="assets/images/11001.jpg" alt="">
+                <p>已有账号？</p>
+                <button id="login">去登录</button>
+            </div>
+        </div>
+        <script>
+            // 下拉菜单
+            const el = document.querySelector('.menu')
+            const dropDownMenu = document.querySelector('.dropdown_menu')
+            el.onclick = function () {
+                el.classList.toggle('closeable');
+                dropDownMenu.classList.toggle('open')
+                const isOpen = dropDownMenu.classList.contains('open')
+            }
+            // 导航栏滚动隐藏
+            const header = document.querySelector('header')
+            window.addEventListener('scroll', function(){
+                if(window.pageYOffset > 0)
+                {
+                    header.setAttribute("style", "top: -61.5px;")
+                }else{
+                    header.setAttribute("style", "")
+                }
+            })
+            // 要操作到的元素
+            let login=document.getElementById('login');
+            let register=document.getElementById('register');
+            let con_box=document.getElementsByClassName('con-box')[0];
+            let left=document.querySelector('.left');
+            let right=document.querySelector('.right');
+            let index = document.getElementById('index');
+            // 去登录按钮点击事件
+            register.addEventListener('click',()=>{
+                right.setAttribute('style','z-index: 5; transform: translateX(100%);');
+                left.setAttribute('style','z-index: 4; transform: translateX(100%);');
+                // left.classList.add('hidden');
+                // right.classList.remove('hidden');
+            })
+            // 去注册按钮点击事件
+            login.addEventListener('click',()=>{
+                left.setAttribute('style','z-index: 5; transform: translateX(0%);');
+                right.setAttribute('style','z-index: 4; transform: translateX(0%);');
+                // left.classList.remove('hidden');
+                // right.classList.add('hidden');
+            })
+            // 注册
+            // 获取表单元素
+            const formr = document.querySelector('.reg');
+            // 处理表单提交事件
+            formr.addEventListener('submit', function(event) {
+                event.preventDefault(); // 阻止表单默认提交行为
+            })
+            const reg_btn = document.querySelector('#reg_btn')
+            // 注册按键触发事件
+            reg_btn.onclick = function (e) {
+                let xhr = new XMLHttpRequest()
+                // 收集表单数据并转换为JSON对象
+                const data = {
+                    account: formr.elements['account'].value,
+                    email: formr.elements['email'].value,
+                    password: formr.elements['password'].value
+                };
+                // 将JSON对象转换为JSON字符串
+                const jsonData = JSON.stringify(data);
+                // 发送
+                xhr.open('post', 'http://127.0.0.1:8081/api/auth/register')
+                xhr.setRequestHeader("Content-Type", "application/json")
+                xhr.onload = function () {
+                    alert(xhr.response)
+                }
+                xhr.send(jsonData)
+            }
+            // 登录
+            // 获取表单元素
+            const forml = document.querySelector('.log');
+            // 处理表单提交事件
+            forml.addEventListener('submit', function(event) {
+                event.preventDefault(); // 阻止表单默认提交行为
+            })
+            const log_btn = document.querySelector('#login_btn')
+            // 登录按键触发事件
+            log_btn.onclick = function (e) {
+                let xhr = new XMLHttpRequest()
+                // 收集表单数据并转换为JSON对象
+                const data = {
+                    email: forml.elements['email'].value,
+                    password: forml.elements['password'].value
+                };
+                // 将JSON对象转换为JSON字符串
+                const jsonData = JSON.stringify(data);
+                // 发送
+                xhr.open('post', 'http://127.0.0.1:8081/api/auth/login')
+                xhr.setRequestHeader("Content-Type", "application/json")
+                xhr.onload = function () {
+                    alert(xhr.response)
+                }
+                xhr.send(jsonData)
+            }
+        </script>
+    </body>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang = "zh-cn">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
+        <meta name = "viewport" content = "width=device-width, initial-cale=1.0" />
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+        <link rel = "stylesheet" href = "assets/style/index.css" />
+        <script type="text/javascript" charset="utf-8" src="assets/js/time.js"></script>
+        <script type="text/javascript" charset="utf-8" src="assets/js/mouseclick.js"></script>
+        <title>HomePage - Starpearl</title>
+    </head>
+    <body>
+        <header style>
+            <div class = "navbar">
+                <div class = "logo"><a href = "#">Starpearl</a></div>
+                <ul class="links">
+                    <li><a href = "#" title = "主页">主页</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "相册">相册</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "时间轴">时间轴</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "圈子">圈子</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "留言">留言</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "关于">关于</a><div class = "nav-box"></div></li>
+                </ul>
+                <a href = "./login.html" class = "login_btn">登录 & 注册</a>
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class = "dropdown_menu">
+            <div class = "links">
+                <li><a href = "#" title = "主页">主页</a></li>
+                <li><a href = "#" title = "时间轴">时间轴</a></li>
+                <li><a href = "#" title = "圈子">圈子</a></li>
+                <li><a href = "#" title = "留言">留言</a></li>
+                <li><a href = "#" title = "关于">关于</a></li>
+            </div>
+   d         <li><a href = "./login.html"class = "login_btn">登录 & 注册</a></li>
+        </div>
+            <div class="clock">
+                <p id="1">0</p> 
+                <p id="2">0</p>
+                <p id="3">:</p>
+                <p id="4">0</p>
+                <p id="5">0</p> 
+                <p id="6">:</p>
+                <p id="7">0</p>
+                <p id="8">0</p>
+            </div>
+        <!-- <div class = "mainbox">
+            <div class = "mainbody">
+                <div class = banner>
+                    <img src = "../images/30.png" />
+                </div>
+                <div class = "maincard">
+                    <div class = "blogcard">
+                        <img src = "../images/11001.jpg" />
+                        <text id = "title"></text>
+                        <text id = "tag"></text>
+                        <text id = "info"></text>
+                    </div>
+                </div>
+            </div>
+            <div class = "sidebar">
+                <div class = "infocard"></div>
+            </div>
+        </div> -->
+        <div class = "upper" id = "btnUpper">
+            <button title = "回到顶部">
+                <i class = "fa fa-angle-up"></i>
+            </button>
+        </div>
+        <script>
+            //下拉菜单
+            const el = document.querySelector('.menu')
+            const dropDownMenu = document.querySelector('.dropdown_menu')
+            el.onclick = function () {
+                el.classList.toggle('closeable');
+                dropDownMenu.classList.toggle('open')
+                const isOpen = dropDownMenu.classList.contains('open')
+            }
+            //导航栏滚动隐藏
+            const header = document.querySelector('header')
+            window.addEventListener('scroll', function(){
+                if(window.pageYOffset > 0)
+                {
+                    header.setAttribute("style", "top: -61.5px;")
+                }else{
+                    header.setAttribute("style", "")
+                }
+            })
+            //回到顶部按钮
+            var oBtn = document.getElementsByTagName('button')[0]
+            window.onscroll = function(){
+                var top = getTop()
+                if(top > 80){
+                    oBtn.style.marginTop = '0px'
+                }else{
+                    oBtn.style.marginTop = '100px'
+                }
+            }
+            oBtn.onclick = function(){
+                var top = getTop()
+                var timer = setInterval(function(){
+                   document.documentElement.scrollTop -= 20
+                    if(getTop() <= 0){
+                        clearInterval(timer)
+                    } 
+                },10)    
+            }
+            function getTop(){
+                return document.documentElement.scrollTop || document.body.scrollTop
+            }
+        </script>
+    </body>
+</html>

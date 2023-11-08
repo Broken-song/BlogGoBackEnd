@@ -1,0 +1,126 @@
+@import "base.css";
+
+.clock{
+    width:214px;
+    height:60px;
+    position: absolute;
+    display: flex;
+    top:15%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 3;
+    /* display: none; */
+}
+
+.clock p{
+    /*width: 1000px;*/
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    /* 设置字体 */
+    font-family: "Kanit";
+    font-weight: 900;
+    /* 文字阴影 实现3D效果 */
+    text-shadow: 0 1px 0 #deafaf,
+    0 2px 0 #bda8a8,
+    0 3px 0 #d8a1a1,
+    0 4px 0 #d59999,
+    0 5px 0 #d29292,
+    0 6px 0 #cf8b8b,
+    0 7px 0 #cc8484,
+    0 8px 0 #c97d7d,
+    0 0 5px rgba(231,156,156,0.05),
+    0 -1px 3px rgba(231,156,156,0.2),
+    0 9px 9px rgba(231,156,156,0.3),
+    0 12px 12px rgba(231,156,156,0.3),
+    0 15px 15px rgba(231,156,156,0.3);
+}
+
+.mainbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.mainbody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.maincard {
+    display: flex;
+    max-width: 1000px;
+}
+
+.blogcard {
+    display: block;
+    width: 1000px;
+    height: 200px;
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+}
+
+.blogcard img {
+    height: 200px;
+    width: 35%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    vertical-align: top;
+    opacity: 1;
+    transition: .3s;
+}
+
+.blogcard img:hover {
+    scale: 1.05;
+}
+
+.banner {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 240px;
+}
+
+.banner img {
+    height: 200px;
+    width: 1000px;
+    border-radius: 15px;
+}
+
+.container {
+    max-width: 1200px;
+    top: 30%;
+}
+
+.upper{
+    position: fixed;
+    bottom: 45px;
+    right: 45px;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    z-index: 4;
+}
+
+.upper button{
+    background-color: #d1aad8;
+    width: 80px;
+    height: 80px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    font-size: 50px;
+    border-radius: 12px;
+    transition: .6s;
+}
+
+.upper button:hover{
+    opacity: .5;
+}
