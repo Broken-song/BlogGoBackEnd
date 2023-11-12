@@ -1,13 +1,18 @@
 package bootstrap
 
 import (
+	"bloggobackend/app/middleware"
 	"bloggobackend/global"
 	"bloggobackend/routes"
 	"github.com/gin-gonic/gin"
 )
 
 func setupRouter() *gin.Engine {
-	router := gin.Default()
+	if global.App.Config.App.Env == "production" {
+		gin.SetMode(gin.ReleaseMode)
+	}
+	router := gin.New()
+	router.Use(gin.Logger(), middleware.CustomRecovery(), middleware.Cors())
 
 	// 前端项目静态资源
 	router.StaticFile("/", "./static/dist/index.html")

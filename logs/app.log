@@ -43,3 +43,9 @@
 {"level":"local.info","ts":"[2023-11-08 10:18:48.553]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
 {"level":"local.error","ts":"[2023-11-08 10:18:48.791]","caller":"bootstrap/redis.go:18","msg":"Redis connect ping failed, err:","err":"dial tcp: lookup tcp/int: getaddrinfow: The specified class was not found."}
 {"level":"local.info","ts":"[2023-11-08 10:20:28.464]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-09 18:05:02.195]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-09 18:53:41.768]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-09 18:57:46.267]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-11-12 15:39:02.330]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2023-11-12 15:39:02.449]","caller":"bootstrap/db.go:49","msg":"mysql connect failed, err:","err":"dial tcp 127.0.0.1:3309: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"local.info","ts":"[2023-11-12 15:40:57.498]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
