@@ -26,5 +26,5 @@ func GetErrorMsg(request interface{}, err error) string {
 		}
 	}
 
-	return "Parameter error"
+	return "参数错误"
 }

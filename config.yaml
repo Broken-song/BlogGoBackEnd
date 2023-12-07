@@ -28,9 +28,9 @@ database:
   log_filename: sql.log # 日志文件名称
 jwt:
   secret: hf8DSnoTIi3MdxqxkrKdoKLtCqLq0KsNHIWmJ7rqUbYEHGU0ujTN3v4WPxHznccO
-  jwt_ttl: 44300
+  jwt_ttl: 44400
   jwt_blacklist_grace_period: 10
-  refresh_grace_period: 144000
+  refresh_grace_period: 12800
 redis:
   host: 127.0.0.1
   port: 6379

@@ -17,6 +17,7 @@ func setupRouter() *gin.Engine {
 	// 前端项目静态资源
 	router.StaticFile("/", "./static/dist/index.html")
 	router.StaticFile("/login", "./static/dist/login.html")
+	router.StaticFile("/profile", "./static/dist/profile.html")
 	router.Static("/assets", "./static/dist/assets")
 	router.StaticFile("/favicon.ico", "./static/dist/favicon.ico")
 	// 其他静态资源

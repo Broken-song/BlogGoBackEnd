@@ -22,6 +22,7 @@ require (
 	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
+	github.com/google/wire v0.5.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jassue/go-storage v1.0.1 // indirect
 	github.com/jassue/jassue-gin v0.0.0-20221221094926-2f55e15de215 // indirect

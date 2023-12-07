@@ -69,7 +69,17 @@ func (mediaService *mediaService) SaveImage(params request.ImageUpload) (result 
 	if err != nil {
 		return
 	}
+	avatar := models.Avatar{
+		UID: params.UID,
+		MID: image.ID.ID,
+	}
 
+	if params.Business == "avatar" {
+		err = global.App.DB.Create(&avatar).Error
+		if err != nil {
+			return
+		}
+	}
 	result = outPut{int64(image.ID.ID), key, disk.Url(key)}
 	return
 }
