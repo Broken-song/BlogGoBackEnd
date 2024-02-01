@@ -10,6 +10,7 @@ import (
 func InitializeRedis() *redis.Client {
 	client := redis.NewClient(&redis.Options{
 		Addr:     global.App.Config.Redis.Host + ":" + global.App.Config.Redis.Port,
+		Username: global.App.Config.Redis.Username,
 		Password: global.App.Config.Redis.Password, // no password set
 		DB:       global.App.Config.Redis.DB,       // use default DB
 	})

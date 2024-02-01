@@ -9,9 +9,19 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
         crossorigin="anonymous" 
         referrerpolicy="no-referrer" />
-        <link rel = "stylesheet" href = "assets/style/index.css" />
-        <script type="text/javascript" charset="utf-8" src="assets/js/time.js"></script>
-        <script type="text/javascript" charset="utf-8" src="assets/js/mouseclick.js"></script>
+        <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+        <link rel = "stylesheet" href = "/assets/style/index.css" />
+        <!-- <script type="text/javascript" charset="utf-8" src="assets/js/time.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="/assets/js/mouseclick.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/loginStatusAndElse.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/getUserInfo.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/navbarHide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/dropDownMenu.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/userMenu.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/logout.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/rootUrl.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/blogContent.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/formatDateTime.js"></script>
         <title>HomePage - Starpearl</title>
     </head>
     <body>
@@ -26,7 +36,10 @@
                     <li><a href = "#" title = "留言">留言</a><div class = "nav-box"></div></li>
                     <li><a href = "#" title = "关于">关于</a><div class = "nav-box"></div></li>
                 </ul>
-                <a href = "./login" class = "login_btn">登录 & 注册</a>
+                <a href = "/login" class = "login_btn">登录 & 注册</a>
+                <div class = "isLogin">
+                    <img class = "avatar_img" src = "/assets/images/normal_avatar.jfif" />
+                </div>
                 <div class="menu">
                     <span></span>
                     <span></span>
@@ -37,6 +50,16 @@
                 </div>
             </div>
         </header>
+        <div class= "menu_content">
+            <div class = "user_menu">
+                <span class = "span_arrow"></span>
+                <div class = "menu_items">
+                    <a class = "menu_item" href = "/profile"><i class="fa-solid fa-user"></i>主页</a>
+                    <a class = "menu_item" id = "manage"><i class="fa-solid fa-gear"></i>管理</a>
+                    <a class = "menu_item" id = "logout" onclick = "logoutFunc()"><i class="fa-solid fa-right-from-bracket"></i>登出</a>
+                </div>
+            </div>
+        </div>
         <div class = "dropdown_menu">
             <div class = "links">
                 <li><a href = "#" title = "主页">主页</a></li>
@@ -45,9 +68,9 @@
                 <li><a href = "#" title = "留言">留言</a></li>
                 <li><a href = "#" title = "关于">关于</a></li>
             </div>
-   d         <li><a href = "./login"class = "login_btn">登录 & 注册</a></li>
+            <li><a href = "/login" class = "login_btn">登录 & 注册</a></li>
         </div>
-            <div class="clock">
+            <!-- <div class="clock">
                 <p id="1">0</p> 
                 <p id="2">0</p>
                 <p id="3">:</p>
@@ -56,70 +79,143 @@
                 <p id="6">:</p>
                 <p id="7">0</p>
                 <p id="8">0</p>
-            </div>
-        <!-- <div class = "mainbox">
-            <div class = "mainbody">
-                <div class = banner>
-                    <img src = "../images/30.png" />
+            </div> -->
+        <div class = "container">
+            <div class = "mainbox">
+                <div class = "mainbody">
                 </div>
-                <div class = "maincard">
-                    <div class = "blogcard">
-                        <img src = "../images/11001.jpg" />
-                        <text id = "title"></text>
-                        <text id = "tag"></text>
-                        <text id = "info"></text>
+                <div class = "sidebar">
+                    <div class = "infocard">
+                        <img class = banner src = "/assets/images/30.png" />
+                        <div class = "avatar">
+                            <img src = "/assets/images/normal_avatar.jfif" alt = "测试头像"/>
+                            <text id = "user_name">测试名</text>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class = "sidebar">
-                <div class = "infocard"></div>
-            </div>
-        </div> -->
-        <div class = "upper" id = "btnUpper">
+        </div>
+        <div class = "pagination">
+            <button id = "prev_page"><i class="fa-solid fa-angle-left"></i></button>
+            <select id = "page" name = "page">
+                <option value = 1>1</option>
+            </select>
+            <button id = "next_page"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+        <!-- <div class = "upper" id = "btnUpper">
             <button title = "回到顶部">
                 <i class = "fa fa-angle-up"></i>
             </button>
-        </div>
-        <script>
-            //下拉菜单
+        </div> -->
+        <script> 
+            // 下拉菜单
             const el = document.querySelector('.menu')
-            const dropDownMenu = document.querySelector('.dropdown_menu')
-            el.onclick = function () {
-                el.classList.toggle('closeable');
-                dropDownMenu.classList.toggle('open')
-                const isOpen = dropDownMenu.classList.contains('open')
-            }
-            //导航栏滚动隐藏
-            const header = document.querySelector('header')
-            window.addEventListener('scroll', function(){
-                if(window.pageYOffset > 0)
-                {
-                    header.setAttribute("style", "top: -61.5px;")
-                }else{
-                    header.setAttribute("style", "")
+            el.onclick = dropDownMenu
+            // 导航栏滚动隐藏
+            window.onscroll = navbarHide
+            // 登录状态判断及相关功能
+            const login_btn = document.querySelectorAll('.login_btn')
+            const isLogin = document.querySelector('.isLogin')
+            const userMenu = document.querySelector('.menu_content')
+            window.onload = loginStatus
+            setInterval(loginStatus,1000)
+            // 设置头像链接
+            const avatarImg = document.querySelectorAll('.avatar_img')
+            setTimeout(() => {
+                if(localStorage.getItem('avatar_url')){
+                    avatarImg.forEach((element, index) => {
+                        avatarImg[index].src = localStorage.getItem('avatar_url')
+                    })
                 }
+            }, 100)
+            // // 用户菜单
+            // avatarImg.onclick = function () {
+            //     userMenu.style.top = "-10px"
+            //     userMenu.classList.toggle('open')
+            // }
+            // const navbar = document.querySelector('.navbar')
+            // if(localStorage.getItem('isLogin') == 1){
+            //     setInterval(menuPosition,16.67)
+            // }
+            // 用户菜单
+            isLogin.onclick = function () {
+                if(!userMenu.classList.contains('open')){
+                    userMenu.style.top = "-10px"
+                    setTimeout(() => {
+                        userMenu.classList.toggle('open')
+                    }, 120)
+                }else{
+                    userMenu.classList.toggle('open')  
+                    setTimeout(() => {  
+                        userMenu.style.top = "-220px" 
+                    }, 200)
+                }
+            }
+            if(localStorage.getItem('isLogin') == 1){
+                setInterval(menuPosition,16.67)
+            }
+            // // 回到顶部按钮
+            // let oBtn = document.querySelector('.upper')
+            // window.onscroll = function(){
+            //     let top = getYOffset()
+            //     if(top > 80){
+            //         oBtn.style.marginTop = '0px'
+            //     }else{
+            //         oBtn.style.marginTop = '100px'
+            //     }
+            // }
+            // oBtn.onclick = function(){
+            //     let upper_timer = setInterval(function (){
+            //         window.scrollTo(0, window.pageYOffset -= 20);
+            //         let top = getYOffset();
+            //         if(top <= 0){
+            //             clearInterval(upper_timer);
+            //         }
+            //     },10);
+            // }
+            
+            function getYOffset(){
+                return window.pageYOffset;
+            }
+            // 页面切换
+            const page = document.querySelector('#page')
+            localStorage.setItem('page', page.value)
+            let storedPage = localStorage.getItem('page')
+            const pPageBtn = document.querySelector("#prev_page")
+            const nPageBtn = document.querySelector("#next_page")
+            
+            setInterval(() => {
+                let currentPage = localStorage.getItem('page')
+                if (currentPage !== storedPage) {  
+                    getContent();
+                    storedPage = currentPage;
+            }  
+            }, 20);
+            pPageBtn.onclick = function (){
+                currentPage = page.value
+                if((currentPage - 1) > 0){
+                    page.value = (currentPage - 1)
+                }
+            }
+            nPageBtn.onclick = function (){
+                currentPage = page.value
+                if((currentPage + 1) <= page.options[page.options.length - 1].value){
+                    page.value = (currentPage + 1)
+                }
+            }
+            page.addEventListener('change', function(){
+                localStorage.setItem('page', parseInt(page.value)) 
             })
-            //回到顶部按钮
-            var oBtn = document.getElementsByTagName('button')[0]
-            window.onscroll = function(){
-                var top = getTop()
-                if(top > 80){
-                    oBtn.style.marginTop = '0px'
-                }else{
-                    oBtn.style.marginTop = '100px'
+            // 博客正文
+            window.onload = getContent
+            // 管理页跳转
+            document.getElementById('manage').onclick = function () {
+                let role = localStorage.getItem('urole')
+                if (role == 1){
+                    window.location.href = "/manage"
+                }else if (role == 2){
+                    window.location.href = "/admin_manage"
                 }
-            }
-            oBtn.onclick = function(){
-                var top = getTop()
-                var timer = setInterval(function(){
-                   document.documentElement.scrollTop -= 20
-                    if(getTop() <= 0){
-                        clearInterval(timer)
-                    } 
-                },10)    
-            }
-            function getTop(){
-                return document.documentElement.scrollTop || document.body.scrollTop
             }
         </script>
     </body>

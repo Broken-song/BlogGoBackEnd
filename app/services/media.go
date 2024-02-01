@@ -80,6 +80,18 @@ func (mediaService *mediaService) SaveImage(params request.ImageUpload) (result 
 			return
 		}
 	}
+
+	banner := models.Banner{
+		UID: params.UID,
+		MID: image.ID.ID,
+	}
+	if params.Business == "banner" {
+		err = global.App.DB.Create(&banner).Error
+		if err != nil {
+			return
+		}
+	}
+
 	result = outPut{int64(image.ID.ID), key, disk.Url(key)}
 	return
 }

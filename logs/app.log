@@ -18637,3 +18637,2500 @@ C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x2fb800)
 {"level":"local.info","ts":"[2023-12-07 13:57:00.521]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
 {"level":"local.info","ts":"[2023-12-07 13:59:20.834]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
 {"level":"local.info","ts":"[2023-12-07 14:01:18.955]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-12-07 15:31:27.396]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-12-08 11:27:49.345]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-12-13 20:26:09.380]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-12-13 20:31:43.678]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-12-15 14:20:15.472]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2023-12-29 08:02:41.038]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2023-12-29 08:02:42.392]","caller":"bootstrap/redis.go:18","msg":"Redis connect ping failed, err:","err":"dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
+
+
+[31m2024/01/08 14:09:29 [Recovery] 2024/01/08 - 14:09:29 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:30 [Recovery] 2024/01/08 - 14:09:30 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:31 [Recovery] 2024/01/08 - 14:09:31 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:32 [Recovery] 2024/01/08 - 14:09:32 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:33 [Recovery] 2024/01/08 - 14:09:33 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:34 [Recovery] 2024/01/08 - 14:09:34 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:36 [Recovery] 2024/01/08 - 14:09:36 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:37 [Recovery] 2024/01/08 - 14:09:37 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:38 [Recovery] 2024/01/08 - 14:09:38 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:39 [Recovery] 2024/01/08 - 14:09:39 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:40 [Recovery] 2024/01/08 - 14:09:40 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:41 [Recovery] 2024/01/08 - 14:09:41 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:42 [Recovery] 2024/01/08 - 14:09:42 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:43 [Recovery] 2024/01/08 - 14:09:43 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:44 [Recovery] 2024/01/08 - 14:09:44 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:45 [Recovery] 2024/01/08 - 14:09:45 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:46 [Recovery] 2024/01/08 - 14:09:46 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:47 [Recovery] 2024/01/08 - 14:09:47 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:48 [Recovery] 2024/01/08 - 14:09:48 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:49 [Recovery] 2024/01/08 - 14:09:49 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:50 [Recovery] 2024/01/08 - 14:09:50 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:51 [Recovery] 2024/01/08 - 14:09:51 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:52 [Recovery] 2024/01/08 - 14:09:52 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:53 [Recovery] 2024/01/08 - 14:09:53 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:54 [Recovery] 2024/01/08 - 14:09:54 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:55 [Recovery] 2024/01/08 - 14:09:55 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:56 [Recovery] 2024/01/08 - 14:09:56 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:57 [Recovery] 2024/01/08 - 14:09:57 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:58 [Recovery] 2024/01/08 - 14:09:58 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:09:59 [Recovery] 2024/01/08 - 14:09:59 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:00 [Recovery] 2024/01/08 - 14:10:00 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:01 [Recovery] 2024/01/08 - 14:10:01 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:02 [Recovery] 2024/01/08 - 14:10:02 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:03 [Recovery] 2024/01/08 - 14:10:03 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:04 [Recovery] 2024/01/08 - 14:10:04 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:05 [Recovery] 2024/01/08 - 14:10:05 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:06 [Recovery] 2024/01/08 - 14:10:06 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:07 [Recovery] 2024/01/08 - 14:10:07 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:08 [Recovery] 2024/01/08 - 14:10:08 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:09 [Recovery] 2024/01/08 - 14:10:09 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:10 [Recovery] 2024/01/08 - 14:10:10 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:11 [Recovery] 2024/01/08 - 14:10:11 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:12 [Recovery] 2024/01/08 - 14:10:12 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:13 [Recovery] 2024/01/08 - 14:10:13 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2024/01/08 14:10:14 [Recovery] 2024/01/08 - 14:10:14 panic recovered:
+POST /api/auth/info HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 0
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x31f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x31f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0xa21278)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:27 (0xa24825)
+	SetApiGroupRoutes.JWTAuth.func1: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0c9b9)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xa0c9a7)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0bb5d)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xa0bb2c)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xa0ac5a)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xa0a8ed)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xa0a41c)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x6fa5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x6f64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x33b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+{"level":"local.info","ts":"[2024-01-08 14:10:28.682]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-08 14:26:05.735]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2024-01-08 14:26:05.791]","caller":"bootstrap/db.go:113","msg":"migrate table failed","err":"failed to parse 1 comment:用户权限级别 as default value for uint, got error: strconv.ParseUint: parsing \"1 comment:用户权限级别\": invalid syntax"}
+{"level":"local.info","ts":"[2024-01-08 14:26:35.327]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2024-01-08 14:26:35.413]","caller":"bootstrap/db.go:113","msg":"migrate table failed","err":"failed to parse '1' comment:用户权限级别 as default value for uint, got error: strconv.ParseUint: parsing \"'1' comment:用户权限级别\": invalid syntax"}
+{"level":"local.info","ts":"[2024-01-08 14:27:18.039]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-08 14:50:22.894]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 12:13:41.160]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 12:44:15.633]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2024-01-09 12:44:15.883]","caller":"bootstrap/db.go:113","msg":"migrate table failed","err":"Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'tb_blogs'"}
+{"level":"local.info","ts":"[2024-01-09 13:03:22.762]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2024-01-09 13:03:23.268]","caller":"bootstrap/db.go:113","msg":"migrate table failed","err":"Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'tb_blogs'"}
+{"level":"local.info","ts":"[2024-01-09 13:08:23.139]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2024-01-09 13:08:23.446]","caller":"bootstrap/db.go:113","msg":"migrate table failed","err":"Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'tb_blogs'"}
+{"level":"local.info","ts":"[2024-01-09 13:08:58.244]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2024-01-09 13:08:58.521]","caller":"bootstrap/db.go:113","msg":"migrate table failed","err":"Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'tb_blogs'"}
+{"level":"local.info","ts":"[2024-01-09 13:26:06.916]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2024-01-09 13:26:07.205]","caller":"bootstrap/db.go:113","msg":"migrate table failed","err":"Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'tb_blogs'"}
+{"level":"local.info","ts":"[2024-01-09 13:28:32.078]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2024-01-09 13:28:32.194]","caller":"bootstrap/db.go:113","msg":"migrate table failed","err":"Error 1142 (42000): INDEX command denied to user 'usermanage'@'localhost' for table 'tb_blogs'"}
+{"level":"local.info","ts":"[2024-01-09 13:33:32.777]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 13:39:55.026]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 13:43:00.128]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 13:53:19.006]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 13:58:53.650]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 14:35:03.104]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 14:41:04.663]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 14:42:38.139]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 14:44:19.519]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 14:45:39.425]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-09 14:54:33.129]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-10 09:15:44.418]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-10 09:50:53.806]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-10 13:53:51.014]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-10 14:10:43.791]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-11 10:26:30.340]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-11 10:27:33.078]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-11 10:47:03.926]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-11 10:56:52.287]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-11 11:00:04.816]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-11 14:47:01.351]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-11 15:19:51.044]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-11 15:38:06.620]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.error","ts":"[2024-01-11 15:38:07.109]","caller":"bootstrap/redis.go:18","msg":"Redis connect ping failed, err:","err":"dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
+
+
+[31m2024/01/11 15:38:19 [Recovery] 2024/01/11 - 15:38:19 panic recovered:
+POST /api/user_delete HTTP/1.1
+Host: localhost:8081
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Authorization: *
+Connection: keep-alive
+Content-Length: 9
+Content-Type: application/json
+Origin: http://localhost:8081
+Referer: http://localhost:8081/user
+Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "Windows"
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:261 (0x10f586)
+	panicmem: panic(memoryError)
+C:/Program Files/Go/src/runtime/signal_windows.go:364 (0x10f556)
+	sigpanic: panicmem()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/services/jwt.go:79 (0x811b78)
+	(*jwtService).IsInBlacklist: joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+C:/Users/23564/OneDrive/项目/Web/BackEnd/BlogGoBackEnd/app/middleware/jwt.go:76 (0x816a48)
+	SetApiGroupRoutes.JWTAdminAuth.func2: if err != nil || services.JwtService.IsInBlacklist(tokenStr) {
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0x7fca59)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0x7fca47)
+	CustomRecoveryWithWriter.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0x7fbbfd)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0x7fbbcc)
+	LoggerWithConfig.func1: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0x7facfa)
+	(*Context).Next: c.handlers[c.index](c)
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0x7fa98d)
+	(*Engine).handleHTTPRequest: c.Next()
+C:/Program Files/Go/bin/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0x7fa4bc)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+C:/Program Files/Go/src/net/http/server.go:2938 (0x4ea5ed)
+	serverHandler.ServeHTTP: handler.ServeHTTP(rw, req)
+C:/Program Files/Go/src/net/http/server.go:2009 (0x4e64d3)
+	(*conn).serve: serverHandler{c.server}.ServeHTTP(w, w.req)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1650 (0x12b800)
+	goexit: BYTE	$0x90	// NOP
+[0m
+{"level":"local.info","ts":"[2024-01-11 15:40:04.123]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-12 03:35:41.324]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-12 03:55:38.433]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-12 04:01:57.583]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-12 05:11:35.895]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-12 10:41:00.689]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-12 11:13:06.055]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}
+{"level":"local.info","ts":"[2024-01-31 22:22:36.701]","caller":"BlogGoBackEnd/main.go:14","msg":"log init success!"}

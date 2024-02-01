@@ -1,9 +1,14 @@
 @import "base.css";
 
-body{
-    height: 100vh;
+body {
+    min-height: 100vh;
+    background-color: #ffffff;
+    background-image: url(/assets/images/5.png);
+    background-size: cover;
+    background-position: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container{

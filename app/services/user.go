@@ -42,3 +42,40 @@ func (userService *userService) GetUserInfo(id string) (err error, user models.U
 	}
 	return
 }
+
+func (userService *userService) SetUserInfo(params request.ProfileSet) (err error, user *models.User) {
+	err = global.App.DB.First(&user, params.UID).Error
+	if err != nil {
+		err = errors.New("用户不存在")
+	}
+	err = global.App.DB.Model(&user).Updates(params).Error
+	if err != nil {
+		err = errors.New("更新数据时发生错误")
+	}
+	return
+}
+
+func (userService *userService) ChangeUserPassword(params request.ProfileSet) (err error, user *models.User) {
+	err = global.App.DB.First(&user, params.UID).Error
+	if err != nil || !utils.BcryptMakeCheck([]byte(params.CurrPass), user.Password) {
+		err = errors.New("用户不存在或原密码错误")
+	}
+	password := models.User{Password: utils.BcryptMake([]byte(params.Password))}
+	err = global.App.DB.Model(&user).Updates(password).Error
+	if err != nil {
+		err = errors.New("更新数据时发生错误")
+	}
+	return
+}
+
+func (userService *userService) DeleteUser(params request.User) (err error, user models.User) {
+	err = global.App.DB.First(&user, params.UID).Error
+	if err != nil {
+		err = errors.New("用户不存在")
+	}
+	err = global.App.DB.Delete(&user, params.UID).Error
+	err = JwtService.JoinBlackList(params.Token)
+	if err != nil {
+	}
+	return
+}

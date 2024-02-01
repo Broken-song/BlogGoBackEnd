@@ -9,8 +9,10 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
         crossorigin="anonymous" 
         referrerpolicy="no-referrer" />
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
         <link rel = "stylesheet" href = "assets/style/login.css" />
         <script type="text/javascript" charset="utf-8" src="assets/js/mouseclick.js"></script> 
+        <script type="text/javascript" charset="utf-8" src="assets/js/rootUrl.js"></script> 
         <title>Login & Register - Starpearl</title>
     </head>
     <body>
@@ -25,7 +27,7 @@
                     <li><a href = "#" title = "留言">留言</a><div class = "nav-box"></div></li>
                     <li><a href = "#" title = "关于">关于</a><div class = "nav-box"></div></li>
                 </ul>
-                <a href = "#" class = "login_btn">登录 & 注册</a>
+                <a href = "/login" class = "login_btn">登录 & 注册</a>
                 <div class="menu">
                     <span></span>
                     <span></span>
@@ -44,7 +46,7 @@
                 <li><a href = "#" title = "留言">留言</a></li>
                 <li><a href = "#" title = "关于">关于</a></li>
             </div>
-            <li><a href = "#"class = "login_btn">登录 & 注册</a></li>
+            <li><a href = "/login"class = "login_btn">登录 & 注册</a></li>
         </div>
         <div class = "container">
             <div class = "form-box">
@@ -144,7 +146,7 @@
                 // 将JSON对象转换为JSON字符串
                 const jsonData = JSON.stringify(data);
                 // 发送
-                xhr.open('post', 'http://127.0.0.1:8081/api/auth/register')
+                xhr.open('post', rootURL + 'api/auth/register')
                 xhr.setRequestHeader("Content-Type", "application/json")
                 xhr.onload = function () {
                     alert(xhr.response)
@@ -170,12 +172,33 @@
                 // 将JSON对象转换为JSON字符串
                 const jsonData = JSON.stringify(data);
                 // 发送
-                xhr.open('post', 'http://127.0.0.1:8081/api/auth/login')
+                xhr.open('post', rootURL + 'api/auth/login')
                 xhr.setRequestHeader("Content-Type", "application/json")
                 xhr.onload = function () {
-                    alert(xhr.response)
+                    let response;  
+                    try {  
+                    response = JSON.parse(xhr.response); 
+                    if(response.error_code){  
+                        console.log('Error Code:', response.error_code)
+                        alert(response.message)
+                    } else {  
+                        if (response.data && response.data.access_token) {  
+                            localStorage.setItem('token', response.data.access_token)
+                            window.location.replace(window.location.href = rootURL + "/")
+                        } else {  
+                            alert("登录状态错误");  
+                        }
+                        
+                    }  
+                    } catch (error) {  
+                        console.error('Error parsing response:', error);  
+                    }  
                 }
-                xhr.send(jsonData)
+                xhr.send(jsonData) 
+               
+            }
+            if(localStorage.getItem('isLogin') == 1){
+                window.history.back()
             }
         </script>
     </body>
