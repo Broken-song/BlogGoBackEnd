@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>博文管理 - Starpearl</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/assets/layui/css/layui.css" rel="stylesheet">
+  <script src="/assets/layui/layui.js"></script>
+</head>
+<body>
+<div style="padding: 16px;"> 
+  <table class="layui-hide" id="blog" lay-filter="blog"></table>
+</div>
+<script type="text/html" id="toolbar">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="blog_create" id="blog_create">
+      新建博文
+    </button>
+    <button class="layui-btn layui-btn-sm layui-bg-blue" lay-event="reload" id="reload">
+      数据刷新
+    </button>
+  </div>
+</script>
+<script type="text/html" id="bar">
+  <div class="layui-clear-space">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs" lay-event="delete">删除</a>
+  </div>
+</script>  
+<script>
+layui.use(['table', 'dropdown'], function(){
+  var table = layui.table;
+  var dropdown = layui.dropdown;
+  const uid = parseInt(localStorage.getItem('uid'));
+  const uname = localStorage.getItem('uname');
+  let apiUrl = '/api/blog_manage?uid=' + uid;
+  // 创建渲染实例
+  table.render({
+    elem: '#blog',
+    url: apiUrl, // 此处为静态模拟数据，实际使用时需换成真实接口
+    toolbar: '#toolbar',
+    defaultToolbar: ['filter', 'exports', 'print', {
+      title: '提示',
+      layEvent: 'LAYTABLE_TIPS',
+      icon: 'layui-icon-tips'
+    }],
+    height: 'full-35', // 最大高度减去其他容器已占有的高度差
+    css: [ // 重设当前表格样式
+      '.layui-table-tool-temp{padding-right: 145px;}'
+    ].join(''),
+    cellMinWidth: 80,
+    totalRow: true, // 开启合计行
+    page: true,
+    cols: [[
+      {field:'id', fixed: 'left', width:80, title: 'ID', sort: true},
+      {field:'user_name', width:140, title: '作者名'},
+      {field:'title', width:130, title: '博客标题'},
+      {field:'content', width:240, title: '博客正文'},
+      {field:'tag', width:160, title: '博客标签'},
+      {field:'created_at', title:'创建时间', width: 180},
+      {field:'updated_at', title:'上次更新时间', width: 180, sort: true},
+      {fixed: 'right', title:'操作', width: 134, minWidth: 125, toolbar: '#bar'}
+    ]],
+    done: function(){
+      var id = this.id;
+    },
+    error: function(res, msg){
+      console.log(res, msg)
+    }
+  });
+  // 工具栏事件
+  table.on('toolbar(blog)', function(obj){
+    var id = obj.config.id;
+    var checkStatus = table.checkStatus(id);
+    var othis = lay(this);
+    switch(obj.event){
+      case 'blog_create':
+      layer.open({
+            title: '新建博文',
+            area: ['80%','80%'],
+            content: ' <form class="layui-form" id="blog_create" action="/api/blog_create" method="post"><input type="hidden" name="uid" value="'+ uid + '"><input type="hidden" name="user_name" value="'+ uname + '"><div class="layui-form-item"><label class="layui-form-label">博文标题</label><div class="layui-input-block"><input type="text" name="title" lay-verify="required" placeholder="标题" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item layui-form-text"><label class="layui-form-label">博文正文</label><div class="layui-input-block"><textarea id="content" name="content" placeholder="正文" class="layui-textarea"></textarea></div></div> <div class="layui-form-item"><label class="layui-form-label">博文标签</label><div class="layui-input-block"><input type="text" name="tag" placeholder="标签" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item"><div class="layui-input-block"><button type="submit" class="layui-btn" lay-submit>立即提交</button><button type="reset" class="layui-btn layui-btn-primary">重置</button></div></div></form>'
+        });
+        layer.addEventListener('DOMContentLoaded', function(){ 
+          document.querySelector('#blog_create').addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+            layer.confirm('确认创建吗', function(index){
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', '/api/blog_create');
+                xhr.setRequestHeader("Content-Type", "application/json")
+                let authToken = localStorage.getItem('token')
+                xhr.setRequestHeader('Authorization', 'Bearer ' + authToken);
+                const bccontent = {
+                    uid: parseInt(bcformr.elements['uid'].value),
+                    user_name: bcformr.elements['user_name'].value,
+                    title: bcformr.elements['title'].value,
+                    content: bcformr.elements['content'].value,
+                    tag: bcformr.elements['tag'].value,
+                }
+                const bcjsonData = JSON.stringify(bccontent);
+                xhr.send(bcjsonData);
+                layer.close(index);
+            })
+        })
+      })
+      break;
+      case 'reload':
+        table.reload('blog', {
+          cols: [[
+            {field:'id', fixed: 'left', width:80, title: 'ID', sort: true},
+            {field:'user_name', width:140, title: '作者名'},
+            {field:'title', width:130, title: '博客标题'},
+            {field:'content', width:240, title: '博客正文'},
+            {field:'tag', width:160, title: '博客标签'},
+            {field:'created_at', title:'创建时间', width: 180},
+            {field:'updated_at', title:'上次更新时间', width: 180, sort: true},
+            {fixed: 'right', title:'操作', width: 134, minWidth: 125, toolbar: '#bar'}
+          ]]
+        })
+        console.log(obj.event)
+      break;
+      case 'LAYTABLE_TIPS':
+        layer.alert('博客文章管理界面');
+      break;
+    };
+  });
+  // 表头自定义元素工具事件 --- 2.8.8+
+  table.on('colTool(blog)', function(obj){
+    var event = obj.event;
+    if(event === 'reload'){
+        
+    }
+    console.log(obj);
+  });
+  
+  // 触发单元格工具事件
+  table.on('tool(blog)', function(obj){ // 双击 toolDouble
+    var data = obj.data; // 获得当前行数据
+    // console.log(obj)
+    if(obj.event === 'edit'){
+        layer.open({
+            title: '编辑 - id:'+ data.id,
+            area: ['80%','80%'],
+            content: ' <form class="layui-form" id="blog_update" action="/api/blog_update" method="post"><input type="hidden" name="id" placeholder="ID" value="'+ data.id + '"><div class="layui-form-item"><label class="layui-form-label">博文标题</label><div class="layui-input-block"><input type="text" name="title" lay-verify="required" placeholder="标题" autocomplete="off" class="layui-input" value="' + data.title + '"></div></div><div class="layui-form-item layui-form-text"><label class="layui-form-label">博文正文</label><div class="layui-input-block"><textarea id="content" name="content" placeholder="正文" class="layui-textarea"></textarea></div></div> <div class="layui-form-item"><label class="layui-form-label">博文标签</label><div class="layui-input-block"><input type="text" name="tag" placeholder="标签" autocomplete="off" class="layui-input" value="' + data.tag +'"></div></div><div class="layui-form-item"><div class="layui-input-block"><button type="submit" class="layui-btn" lay-submit lay-filter="demo1">立即提交</button><button type="reset" class="layui-btn layui-btn-primary">重置</button></div></div></form>'
+        });
+        document.querySelector('#content').value = data.content;
+        const formr = document.querySelector('#blog_update');
+        formr.addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+            layer.confirm('确认修改吗', function (index){
+                let xhr = new XMLHttpRequest();  
+                xhr.open('POST', '/api/blog_update');
+                xhr.setRequestHeader("Content-Type", "application/json")
+                let authToken = localStorage.getItem('token')
+                xhr.setRequestHeader('Authorization', 'Bearer ' + authToken);
+                const content = {
+                    id: parseInt(formr.elements['id'].value),
+                    title: formr.elements['title'].value,
+                    content: formr.elements['content'].value,
+                    tag: formr.elements['tag'].value,
+                }
+                const jsonData = JSON.stringify(content);
+                xhr.send(jsonData);
+                layer.close(index);
+            })
+        })
+    } else if(obj.event === 'delete'){
+        layer.confirm('确认删除行 [id: '+ data.id +'] 吗', function(index){
+            // 向服务端发送删除指令
+            let xhr = new XMLHttpRequest();  
+            xhr.open('POST', '/api/blog_delete');
+            xhr.setRequestHeader("Content-Type", "application/json")
+            let authToken = localStorage.getItem('token')
+            xhr.setRequestHeader('Authorization', 'Bearer ' + authToken); 
+            const content = {
+                id: data.id
+            }
+            const jsonContent = JSON.stringify(content);
+            xhr.send(jsonContent)
+            obj.del(); // 删除对应行（tr）的DOM结构
+            layer.close(index);
+        }); 
+    }
+  });
+});
+</script>
+</body>
+</html>

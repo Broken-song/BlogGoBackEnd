@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>用户管理 - Starpearl</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/assets/layui/css/layui.css" rel="stylesheet">
+  <script src="/assets/layui/layui.js"></script>
+</head>
+<body>
+<div style="padding: 16px;"> 
+  <table class="layui-hide" id="user" lay-filter="user"></table>
+</div>
+<script type="text/html" id="toolbar">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm layui-bg-blue" id="reload">
+        数据刷新
+      </button>
+  </div>
+</script>
+<script type="text/html" id="bar">
+  <div class="layui-clear-space">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs" lay-event="delete">删除</a>
+  </div>
+</script>  
+<script>
+layui.use(['table', 'dropdown'], function(){
+  var table = layui.table;
+  var dropdown = layui.dropdown;
+  
+  // 创建渲染实例
+  table.render({
+    elem: '#user',
+    url: '/api/user_manage', // 此处为静态模拟数据，实际使用时需换成真实接口
+    toolbar: '#toolbar',
+    defaultToolbar: ['filter', 'exports', 'print', {
+      title: '提示',
+      layEvent: 'LAYTABLE_TIPS',
+      icon: 'layui-icon-tips'
+    }],
+    height: 'full-35', // 最大高度减去其他容器已占有的高度差
+    css: [ // 重设当前表格样式
+      '.layui-table-tool-temp{padding-right: 145px;}'
+    ].join(''),
+    cellMinWidth: 80,
+    totalRow: true, // 开启合计行
+    page: true,
+    cols: [[
+      {field:'ID', fixed: 'left', width:80, title: 'ID', sort: true},
+      {field:'name', width:140, title: '用户名'},
+      {field:'email', width:200, title: '邮箱'},
+      {field:'content', width:200, title: '用户简介'},
+      {field:'role', width:100, title: '用户权限等级'},
+      {field:'created_at', title:'创建时间', width: 180},
+      {field:'updated_at', title:'上次更新时间', width: 180, sort: true},
+      {fixed: 'right', title:'操作', width: 134, minWidth: 125, toolbar: '#bar'}
+    ]],
+    done: function(){
+      var id = this.id;
+    },
+    error: function(res, msg){
+      console.log(res, msg)
+    }
+  });
+  // 工具栏事件
+  table.on('toolbar(user)', function(obj){
+    var id = obj.config.id;
+    var checkStatus = table.checkStatus(id);
+    var othis = lay(this);
+    switch(obj.event){
+      case 'getCheckData':
+        var data = checkStatus.data;
+        layer.alert(layui.util.escape(JSON.stringify(data)));
+      break;
+      case 'LAYTABLE_TIPS':
+        layer.alert('用户账号管理界面');
+      break;
+    };
+  });
+  // 表头自定义元素工具事件 --- 2.8.8+
+  table.on('colTool(user)', function(obj){
+    var event = obj.event;
+    if(event === 'reload'){
+        table.reload('user', {
+            cols: [[
+                {field:'ID', fixed: 'left', width:80, title: 'ID', sort: true},
+                {field:'email', width:200, title: '邮箱'},
+                {field:'name', width:140, title: '用户名'},
+                {field:'content', width:200, title: '用户简介'},
+                {field:'role', width:100, title: '用户权限等级'},
+                {field:'created_at', title:'创建时间', width: 180},
+                {field:'updated_at', title:'上次更新时间', width: 180, sort: true},
+                {fixed: 'right', title:'操作', width: 134, minWidth: 125, toolbar: '#bar'}
+            ]]
+         })
+    }
+    console.log(obj);
+  });
+  
+  // 触发单元格工具事件
+  table.on('tool(user)', function(obj){ // 双击 toolDouble
+    var data = obj.data; // 获得当前行数据
+    // console.log(obj)
+    if(obj.event === 'edit'){
+        layer.open({
+            title: '编辑 - ID:'+ data.ID,
+            area: ['80%','80%'],
+            content: ' <form class="layui-form" id="user_update" action="/api/profile_set" method="post"><input type="hidden" name="uid" placeholder="UID" value="'+ data.ID + '"><div class="layui-form-item"><label class="layui-form-label">用户名</label><div class="layui-input-block"><input type="text" name="account" placeholder="用户名" autocomplete="off" class="layui-input" value="' + data.name + '"></div></div><div class="layui-form-item"><label class="layui-form-label">邮箱</label><div class="layui-input-block"><input type="text" name="email" placeholder="邮箱" class="layui-input" value="'+ data.email + '"></div></div><div class="layui-form-item layui-form-text"><label class="layui-form-label">简介</label><div class="layui-input-block"><input type="text" name="content" placeholder="简介" class="layui-input" value="'+ data.content + '"></div></div><div class="layui-form-item"><label class="layui-form-label">权限等级</label><div class="layui-input-block"><input type="text" name="role" placeholder="权限等级" autocomplete="off" class="layui-input" value="' + data.role +'"></div></div><div class="layui-form-item"><div class="layui-input-block"><button type="submit" class="layui-btn" lay-submit lay-filter="demo1">立即提交</button><button type="reset" class="layui-btn layui-btn-primary">重置</button></div></div></form>'
+        });
+        const formr = document.getElementById('user_update');
+        formr.addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+            layer.confirm('确认修改吗', function (index){
+                let xhr = new XMLHttpRequest();  
+                xhr.open('POST', '/api/profile_set');
+                xhr.setRequestHeader("Content-Type", "application/json")
+                let authToken = localStorage.getItem('token')
+                xhr.setRequestHeader('Authorization', 'Bearer ' + authToken);
+                const content = {
+                    uid: parseInt(formr.elements['uid'].value),
+                    account: formr.elements['account'].value,
+                    email: formr.elements['email'].value,
+                    content: formr.elements['content'].value,
+                    role: parseInt(formr.elements['role'].value),
+                }
+                const jsonData = JSON.stringify(content);
+                xhr.send(jsonData);
+                layer.close(index);
+            })
+        })
+    } else if(obj.event === 'delete'){
+        layer.confirm('确认删除行 [ID: '+ data.ID +'] 吗', function(index){
+            // 向服务端发送删除指令
+            let xhr = new XMLHttpRequest();  
+            xhr.open('POST', '/api/user_delete');
+            xhr.setRequestHeader("Content-Type", "application/json")
+            let authToken = localStorage.getItem('token')
+            xhr.setRequestHeader('Authorization', 'Bearer ' + authToken); 
+            const content = {
+                uid: data.ID
+            }
+            const jsonContent = JSON.stringify(content);
+            xhr.send(jsonContent)
+            obj.del(); // 删除对应行（tr）的DOM结构
+            layer.close(index);
+        }); 
+    }
+  });
+});
+</script>
+</body>
+</html>
