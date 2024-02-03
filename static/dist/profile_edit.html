@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang = "zh-cn">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
+        <meta name = "viewport" content = "width=device-width, initial-cale=1.0" />
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+        <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+        <link rel = "stylesheet" href = "/assets/style/profile_edit.css" />
+        <!-- <script type="text/javascript" charset="utf-8" src="assets/js/time.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="/assets/js/mouseclick.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/loginStatusAndElse.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/getUserInfo.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/navbarHide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/dropDownMenu.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/userMenu.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/logout.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/rootUrl.js"></script>
+        <title>ProfileEdit - Starpearl</title>
+    </head>
+    <body>
+        <header style>
+            <div class = "navbar">
+                <div class = "logo"><a href = "#">Starpearl</a></div>
+                <ul class="links">
+                    <li><a href = "#" title = "主页">主页</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "相册">相册</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "时间轴">时间轴</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "圈子">圈子</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "留言">留言</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "关于">关于</a><div class = "nav-box"></div></li>
+                </ul>
+                <a href = "/login" class = "login_btn">登录 & 注册</a>
+                <div class = "isLogin">
+                    <img class = "avatar_img" src = "/assets/images/normal_avatar.jfif" />
+                </div>
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class= "menu_content">
+            <div class = "user_menu">
+                <span class = "span_arrow"></span>
+                <div class = "menu_items">
+                    <a class = "menu_item" href = "#"><i class="fa-solid fa-user"></i>主页</a>
+                    <a class = "menu_item" href = "/manage"><i class="fa-solid fa-gear"></i>管理</a>
+                    <a class = "menu_item" id = "logout" onclick = "logoutFunc()"><i class="fa-solid fa-right-from-bracket"></i>注销</a>
+                </div>
+            </div>
+        </div>
+        <div class = "profile">
+            <img class = "banner" src = "/assets/images/30.png"/>
+            <div class = "contnav">
+                <div class = "navinfo">
+                    <text class = "profilehref" href = "/profile">个人主页</text>
+                    <text>/</text>
+                    <text class = "profileedithref">编辑资料</text>
+                </div>
+                <div class = profile_btn>
+                    <button id = "edit_save">保存</button>
+                    <button id = "edit_cncl">取消</button>
+                </div>
+            </div>
+            <form class = "profile_form">    
+                <div class = "profile_edit_content">
+                    <p><label>UID：</label><text id = "uid">1</text></p>
+                    <p><label>用户名：</label><input type = "account" placeholder="用户名" name = "account"></p>
+                    <p><label>邮箱：</label><input type = "email" placeholder="邮箱" name = "email"></p>
+                    <p><label>简介：</label><input placeholder="简介" name = "content"></p>
+                </div>
+            </form>
+        </div>
+        <div class = "dropdown_menu">
+            <div class = "links">
+                <li><a href = "#" title = "主页">主页</a></li>
+                <li><a href = "#" title = "时间轴">时间轴</a></li>
+                <li><a href = "#" title = "圈子">圈子</a></li>
+                <li><a href = "#" title = "留言">留言</a></li>
+                <li><a href = "#" title = "关于">关于</a></li>
+            </div>
+            <li><a href = "/login"class = "login_btn">登录 & 注册</a></li>
+        </div>
+    </body>
+    <script>
+        /// 下拉菜单
+        const el = document.querySelector('.menu')
+            el.onclick = dropDownMenu
+            // 导航栏滚动隐藏
+            window.onscroll = navbarHide
+            // 登录状态判断及相关功能
+            const login_btn = document.querySelectorAll('.login_btn')
+            const isLogin = document.querySelector('.isLogin')
+            const userMenu = document.querySelector('.menu_content')
+            window.onload = loginStatus
+            setInterval(loginStatus,1000)
+            // 设置头像链接
+            const avatarImg = document.querySelectorAll('.avatar_img')
+            setTimeout(() => {
+                if(localStorage.getItem('avatar_url')){
+                    avatarImg.forEach((element, index) => {
+                        avatarImg[index].src = localStorage.getItem('avatar_url')
+                    })
+                }
+            }, 100)
+            // // 用户菜单
+            // avatarImg.onclick = function () {
+            //     userMenu.style.top = "-10px"
+            //     userMenu.classList.toggle('open')
+            // }
+            // const navbar = document.querySelector('.navbar')
+            // if(localStorage.getItem('isLogin') == 1){
+            //     setInterval(menuPosition,16.67)
+            // }
+            // 用户菜单
+            isLogin.onclick = function () {
+                if(!userMenu.classList.contains('open')){
+                    userMenu.style.top = "-10px"
+                    setTimeout(() => {
+                        userMenu.classList.toggle('open')
+                    }, 120)
+                }else{
+                    userMenu.classList.toggle('open')  
+                    setTimeout(() => {  
+                        userMenu.style.top = "-220px" 
+                    }, 200)
+                }
+            }
+            if(localStorage.getItem('isLogin') == 1){
+                setInterval(menuPosition,16.67)
+            }
+        // 资料编辑
+        let uidtext = document.querySelector('#uid')
+        uid.textContent = localStorage.getItem('uid')
+        const save_btn = document.querySelector('#edit_save')
+        let forml = document.querySelector('.profile_form')
+        save_btn.onclick = function () {
+            let xhr = new XMLHttpRequest()
+            // 收集表单数据并转换为JSON对象
+            const formData = {
+                    uid: parseInt(localStorage.getItem('uid'), 10),
+                    account: forml.elements['account'].value,
+                    email: forml.elements['email'].value,
+                    content: forml.elements['content'].value,
+            }
+            // 将JSON对象转换为JSON字符串
+            const jsonData = JSON.stringify(formData);
+            // 发送
+            xhr.open('post', rootURL + 'api/profile_set')
+            xhr.setRequestHeader("Content-Type", "application/json")
+            let authToken = localStorage.getItem('token')
+            xhr.setRequestHeader('Authorization', 'Bearer ' + authToken);
+            xhr.onload = function () {
+                let response;  
+                try {  
+                    response = JSON.parse(xhr.response); 
+                    if(response.error_code){  
+                        console.log('Error Code:', response.error_code)
+                        alert(response.message)
+                    } else {  
+                        alert("资料已保存");
+                    }  
+                } catch (error) {  
+                        console.error('Error parsing response:', error);  
+                    }  
+            }
+            xhr.send(jsonData) 
+        }
+        const cncl_btn = document.querySelector('#edit_cncl')
+        cncl_btn.onclick = function () {
+            window.history.back()
+        }
+    </script>
+</html>

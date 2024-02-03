@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang = "zh-cn">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
+        <meta name = "viewport" content = "width=device-width, initial-cale=1.0" />
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+        <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+        <link rel = "stylesheet" href = "/assets/style/base.css" />
+        <!-- <script type="text/javascript" charset="utf-8" src="assets/js/time.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="/assets/js/mouseclick.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/loginStatusAndElse.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/getUserInfo.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/navbarHide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/dropDownMenu.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/userMenu.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/logout.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/rootUrl.js"></script>
+        <title>Page - Starpearl</title>
+    </head>
+    <body>
+        <header style>
+            <div class = "navbar">
+                <div class = "logo"><a href = "#">Starpearl</a></div>
+                <ul class="links">
+                    <li><a href = "#" title = "主页">主页</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "相册">相册</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "时间轴">时间轴</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "圈子">圈子</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "留言">留言</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "关于">关于</a><div class = "nav-box"></div></li>
+                </ul>
+                <a href = "/login" class = "login_btn">登录 & 注册</a>
+                <div class = "isLogin">
+                    <img class = "avatar_img" src = "/assets/images/normal_avatar.jfif" />
+                </div>
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class= "menu_content">
+            <div class = "user_menu">
+                <span class = "span_arrow"></span>
+                <div class = "menu_items">
+                    <a class = "menu_item" href = "#"><i class="fa-solid fa-user"></i>主页</a>
+                    <a class = "menu_item" href = "#"><i class="fa-solid fa-gear"></i>设置</a>
+                    <a class = "menu_item" id = "logout" onclick = "logoutFunc()"><i class="fa-solid fa-right-from-bracket"></i>注销</a>
+                </div>
+            </div>
+        </div>
+        <div class = "dropdown_menu">
+            <div class = "links">
+                <li><a href = "#" title = "主页">主页</a></li>
+                <li><a href = "#" title = "时间轴">时间轴</a></li>
+                <li><a href = "#" title = "圈子">圈子</a></li>
+                <li><a href = "#" title = "留言">留言</a></li>
+                <li><a href = "#" title = "关于">关于</a></li>
+            </div>
+            <li><a href = "/login"class = "login_btn">登录 & 注册</a></li>
+        </div>
+    </body>
+    <script>
+        // 下拉菜单
+        const el = document.querySelector('.menu')
+        el.onclick = dropDownMenu
+        // 导航栏滚动隐藏
+        window.onscroll = navbarHide
+        // 登录状态判断及相关功能
+        const login_btn = document.querySelector('.login_btn')
+        const isLogin = document.querySelector('.isLogin')
+        const userMenu = document.querySelector('.menu_content')
+        window.onload = loginStatus
+        setInterval(loginStatus,1000)
+        // 设置头像链接
+        const avatarImg = document.querySelector('.avatar_img')
+        if(localStorage.getItem('avatar_url')){
+            avatarImg.src = localStorage.getItem('avatar_url')
+        }
+        // 用户菜单
+        avatarImg.onclick = function () {
+            userMenu.classList.toggle('open')
+        }
+        const navbar = document.querySelector('.navbar')
+        if(localStorage.getItem('isLogin') == 1){
+            setInterval(menuPosition,16.67)
+        }
+    </script>
+</html>

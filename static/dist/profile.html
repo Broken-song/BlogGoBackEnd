@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang = "zh-cn">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
+        <meta name = "viewport" content = "width=device-width, initial-cale=1.0" />
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+        <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+        <link rel = "stylesheet" href = "/assets/style/profile.css" />
+        <!-- <script type="text/javascript" charset="utf-8" src="assets/js/time.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="/assets/js/mouseclick.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/loginStatusAndElse.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/getUserInfo.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/navbarHide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/dropDownMenu.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/userMenu.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/logout.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/assets/js/rootUrl.js"></script>
+        <title>Profile - Starpearl</title>
+    </head>
+    <body>
+        <header style>
+            <div class = "navbar">
+                <div class = "logo"><a href = "#">Starpearl</a></div>
+                <ul class="links">
+                    <li><a href = "#" title = "主页">主页</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "相册">相册</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "时间轴">时间轴</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "圈子">圈子</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "留言">留言</a><div class = "nav-box"></div></li>
+                    <li><a href = "#" title = "关于">关于</a><div class = "nav-box"></div></li>
+                </ul>
+                <a href = "/login" class = "login_btn">登录 & 注册</a>
+                <div class = "isLogin">
+                    <img class = "avatar_img" src = "/assets/images/normal_avatar.jfif" />
+                </div>
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span class = span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class= "menu_content">
+            <div class = "user_menu">
+                <span class = "span_arrow"></span>
+                <div class = "menu_items">
+                    <a class = "menu_item" href = "#"><i class="fa-solid fa-user"></i>主页</a>
+                    <a class = "menu_item" href = "/manage"><i class="fa-solid fa-gear"></i>管理</a>
+                    <a class = "menu_item" id = "logout" onclick = "logoutFunc()"><i class="fa-solid fa-right-from-bracket"></i>注销</a>
+                </div>
+            </div>
+        </div>
+        <div class = "profile">
+            <img class = "banner" src = "/assets/images/30.png"/>
+            <div class = "avatar">
+                <img  class = "avatar_img" src = "/assets/images/normal_avatar.jfif"/>
+                <div class = user>
+                    <text id = "user_name">测试名</text>
+                    <text id = "user_content">这是一个很懒的人。</text>
+                </div>
+                <div class = profile_btn>
+                    <button id = "profile_edit" onclick = "hrefProfileEdit()">编辑资料</button>
+                    <!-- <button id = "banner_set">更换头图</button> -->
+                </div>
+            </div>
+            <ul class = "profile_switch">
+                <li onclick = "profileContentSwitch()">主页</li>
+                <li onclick = "blogContentSwitch()">博客</li>
+            </ul>
+            <div class = "content">
+                <div class = "profile_content">
+
+                </div>
+                <div class = "blog_content">
+
+                </div>
+            </div>
+        </div>
+        <div class = "dropdown_menu">
+            <div class = "links">
+                <li><a href = "/" title = "主页">主页</a></li>
+                <li><a href = "#" title = "时间轴">时间轴</a></li>
+                <li><a href = "#" title = "圈子">圈子</a></li>
+                <li><a href = "#" title = "留言">留言</a></li>
+                <li><a href = "#" title = "关于">关于</a></li>
+            </div>
+            <li><a href = "/login"class = "login_btn">登录 & 注册</a></li>
+        </div>
+    </body>
+    <script>
+        // 下拉菜单
+        const el = document.querySelector('.menu')
+        el.onclick = dropDownMenu
+        // 导航栏滚动隐藏
+        window.onscroll = navbarHide
+        // 登录状态判断及相关功能
+        const login_btn = document.querySelectorAll('.login_btn')
+        const isLogin = document.querySelector('.isLogin')
+        const userMenu = document.querySelector('.menu_content')
+        window.onload = loginStatus
+        setInterval(loginStatus,1000)
+        // 设置头像链接
+        window.onload = getUserInfo
+        const avatarImg = document.querySelectorAll('.avatar_img')
+        if(localStorage.getItem('avatar_url')){
+            avatarImg.forEach((element, index) => {
+                avatarImg[index].src = localStorage.getItem('avatar_url')
+            })
+            let userName = document.querySelector('#user_name')
+            let userContent = document.querySelector('#user_content')
+            userName.textContent = localStorage.getItem('uname')
+            userContent.textContent = localStorage.getItem('ucontent')
+        }
+        // 用户菜单
+        isLogin.onclick = function () {
+            if(!userMenu.classList.contains('open')){
+                userMenu.style.top = "-10px"
+                setTimeout(() => {
+                    userMenu.classList.toggle('open')
+                }, 120)
+            }else{
+                userMenu.classList.toggle('open')  
+                setTimeout(() => {  
+                    userMenu.style.top = "-220px" 
+                }, 200)
+            }
+        }
+        const navbar = document.querySelector('.navbar')
+        if(localStorage.getItem('isLogin') == 1){
+            setInterval(menuPosition,16.67)
+        }
+        function hrefProfileEdit () {
+            window.location.href = "/profile_edit"
+        }
+        function profileContentSwitch () {
+            let profile_content = document.querySelector('.profile_content')
+            let blog_content = document.querySelector('.blog_content')
+            profile_content.style.left = "50px"
+            blog_content.style.left = "1100px"
+        }
+        function blogContentSwitch () {
+            let profile_content = document.querySelector('.profile_content')
+            let blog_content = document.querySelector('.blog_content')
+            profile_content.style.left = "-1100px"
+            blog_content.style.left = "50px"
+        }
+        let xhr = new XMLHttpRequest();  
+    xhr.open('GET', '/api/blog_manage?page=1&limit=100&uid=' + parseInt(localStorage.getItem('uid')), true);
+    xhr.setRequestHeader("Content-Type", "application/json")
+    // 处理后端返回的数据并显示在页面上
+    xhr.onreadystatechange = function() {  
+        if (xhr.readyState === 4 && xhr.status === 200) {    
+            let data = JSON.parse(xhr.response);
+            let pageBody = document.getElementsByClassName('blog_content')
+            pageBody.innerHTML = ""
+            for (let i = 0; i < data.data.count; i++) {
+                let item = data.data.content[i]; 
+                let pageBlogCard = document.createElement('div')
+                pageBlogCard.className = 'blogcard'
+                pageBody.append(pageBlogCard)
+                let pageContentBox = document.createElement('div')
+                pageContentBox.className = "cont_box"
+                let title = document.createElement('text')
+                title.id = "title"
+                title.textContent = item.title
+                let content = document.createElement('text')
+                content.id = "content"
+                content.textContent = item.content
+                let tag = document.createElement('text')
+                tag.id = "tag"
+                tag.textContent = item.tag
+                let time = document.createElement('text')
+                time.id = "time"
+                time.textContent = "创建时间：" + formatDateTime(item.created_at) + " 最近改动时间：" + formatDateTime(item.updated_at)
+                pageContentBox.append(title, content, tag, time)
+                pageBlogCard.append(pageContentBox)
+            }
+        }  
+    }
+    xhr.send()
+    </script>
+</html>
