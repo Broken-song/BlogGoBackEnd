@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag starpearl/blog:latest
+    - name: Login to Aliyun Registry
+      run: docker login --username=${{ secrets.ALIREG_ACCOUNT }} --password=${{ secrets.ALIREG_PWD }}registry.cn-shanghai.aliyuncs.com
+    - name: Tag the Docker image
+      run: docker tag starpearl/blog:latest registry.cn-shanghai.aliyuncs.com/starpearl/blog:latest
+    - name: Push image to Aliyun
+      run: docker push registry.cn-shanghai.aliyuncs.com/starpearl/blog:latest
