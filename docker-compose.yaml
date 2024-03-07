@@ -1,0 +1,9 @@
+version: "3.5"
+services:
+  blog:
+    container_name: starpearl-blog
+    image: starpearl/blog:v0.0.1
+    ports:
+      - 8081:8081
+    volumes:
+      - ./logs:/starpearlblog/logs
